@@ -49,7 +49,7 @@ const getPorchAndFloor = number => {
         porchCounter--;
         floorCounter = floorPerPorch;
     } else {
-        while (number >= flatPerFloor) {
+        while (number > flatPerFloor) {
             number -= flatPerFloor;
             floorCounter++;
         }
