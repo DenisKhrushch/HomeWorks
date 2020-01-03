@@ -70,10 +70,8 @@ const studentArr = [
     },
 ];
 
-let randomNumber = (min = 0, max = 10) => Math.floor(Math.random() * (max - min)) + min;
-
 function CreateStudent({name, surname, ratingPoint, schoolPoint}) {
-    this.id = randomNumber();
+    this.id = Number;
     this.name = name;
     this.surname = surname;
     this.ratingPoint = ratingPoint;
@@ -135,6 +133,7 @@ const setAllCreatedStudentsByConstructor = studentArr => {
     let arrOfStudents = [];
     for (let i = 0; i < studentArr.length; i++) {
         const studentObj = new CreateStudent(studentArr[i]);
+        studentObj.id = i; //альтернатива рандому
         arrOfStudents.push(studentObj);
     }
     return arrOfStudents;
@@ -179,8 +178,65 @@ const onlyTheBestStudents = arr => {
     return arr
 };
 
-let arr = setAllCreatedStudentsByConstructor(studentArr);
-let selfPayment = onlySelfPayment(arr);
-sort(selfPayment);
-whoIsBetter(selfPayment);
-console.log(onlyTheBestStudents(selfPayment));
+// let arr = setAllCreatedStudentsByConstructor(studentArr);
+// let selfPayment = onlySelfPayment(arr);
+// sort(selfPayment);
+// whoIsBetter(selfPayment);
+// console.log(onlyTheBestStudents(selfPayment));
+
+//_________________________________________________________________2
+
+function CustomString() {
+    this.reverse = function (str) {
+        let result = '';
+        for (let i = str.length - 1; i >= 0; i--)
+            result += str[i];
+        return result;
+    };
+
+    this.ucFirst = function (str) {
+      return str[0].toUpperCase() + str.slice(1);
+    };
+
+    this.ucWords = function (str) {
+        let arr = str.split(' ');
+        let result = '';
+        for (let i = 0; i < arr.length; i++)
+            result += this.ucFirst(arr[i]) + ' ';
+        return result;
+    };
+}
+
+const myString = new CustomString();
+console.log(myString.reverse('qwerty'));
+console.log(myString.ucFirst('qwerty'));
+console.log(myString.ucWords('qwerty qwerty qwerty'));
+
+//_________________________________________________________________3
+
+function Validator() {
+    this.checkIsEmail = function (str) {
+        return str.includes('@')
+    };
+
+    this.checkIsDomain = function (str) {
+        return str.includes('.com')
+    };
+
+    this.checkIsDate = function (str) {
+        let arr = str.split('.');
+        return arr[0] <= 31 && arr[1] <= 12 && arr[2].length === 4;
+    };
+
+    this.checkIsPhone = function (str) {
+        return str.includes('+38')
+    };
+}
+
+
+let validator = new Validator();
+
+console.log(validator.checkIsEmail('vasya.pupkin@gmail.com')); // true
+console.log(validator.checkIsDomain('google.com')); // true
+console.log(validator.checkIsDate('30.11.2019')); // true
+console.log(validator.checkIsPhone('+38 (066) 937-99-92'));
