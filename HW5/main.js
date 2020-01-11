@@ -70,14 +70,16 @@ const studentArr = [
     },
 ];
 
+
 function CreateStudent({name, surname, ratingPoint, schoolPoint}) {
-    this.id = Number;
+    this.id = CreateStudent._id++;
     this.name = name;
     this.surname = surname;
     this.ratingPoint = ratingPoint;
     this.schoolPoint = schoolPoint;
     this.isSelfPayment = this.ratingPoint >= 800;
 }
+CreateStudent._id = 0;
 
 // const setAllCreatedStudentsByConstructor = studentArr => {
 //     //создаем новый массив экземпялоров, созданных функцией-конструктором
@@ -133,7 +135,6 @@ const setAllCreatedStudentsByConstructor = studentArr => {
     let arrOfStudents = [];
     for (let i = 0; i < studentArr.length; i++) {
         const studentObj = new CreateStudent(studentArr[i]);
-        studentObj.id = i; //альтернатива рандому
         arrOfStudents.push(studentObj);
     }
     return arrOfStudents;
@@ -148,16 +149,18 @@ const onlySelfPayment = arr => {
     }
     return selfPayment;
 };
+// const onlySelfPayment = arr => arr.filter(student => student.ratingPoint >= 800);
+
 const whoIsBetter = arr => {
     //проверяем дублирование значений с оценками
     for (let i = 0; i < arr.length - 1; i++) {
         if (arr[i].ratingPoint === arr[i + 1].ratingPoint) {
             if (arr[i].schoolPoint > arr[i + 1].schoolPoint) {
                 arr[i + 1].isSelfPayment = false;
-                arr.splice((i + 1),1);
+                arr.splice((i + 1), 1);
             } else {
                 arr[i].isSelfPayment = false;
-                arr.splice(i,1);
+                arr.splice(i, 1);
             }
         }
     }
@@ -178,11 +181,38 @@ const onlyTheBestStudents = arr => {
     return arr
 };
 
-// let arr = setAllCreatedStudentsByConstructor(studentArr);
+let arr = setAllCreatedStudentsByConstructor(studentArr);
+
+let foo = (arr, str) => {
+    if (str !== +str) {
+        let param = new RegExp(str);
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // let selfPayment = onlySelfPayment(arr);
 // sort(selfPayment);
 // whoIsBetter(selfPayment);
 // console.log(onlyTheBestStudents(selfPayment));
+//
+
 
 //_________________________________________________________________2
 
@@ -195,7 +225,7 @@ function CustomString() {
     };
 
     this.ucFirst = function (str) {
-      return str[0].toUpperCase() + str.slice(1);
+        return str[0].toUpperCase() + str.slice(1);
     };
 
     this.ucWords = function (str) {
@@ -206,14 +236,11 @@ function CustomString() {
         return result;
     };
 }
-
-const myString = new CustomString();
-console.log(myString.reverse('qwerty'));
-console.log(myString.ucFirst('qwerty'));
-console.log(myString.ucWords('qwerty qwerty qwerty'));
-
+// const myString = new CustomString();
+// console.log(myString.reverse('qwerty'));
+// console.log(myString.ucFirst('qwerty'));
+// console.log(myString.ucWords('qwerty qwerty qwerty'));
 //_________________________________________________________________3
-
 function Validator() {
     this.checkIsEmail = function (str) {
         return str.includes('@')
@@ -225,18 +252,15 @@ function Validator() {
 
     this.checkIsDate = function (str) {
         let arr = str.split('.');
-        return arr[0] <= 31 && arr[1] <= 12 && arr[2].length === 4;
+        return
     };
 
     this.checkIsPhone = function (str) {
         return str.includes('+38')
     };
 }
-
-
 let validator = new Validator();
-
-console.log(validator.checkIsEmail('vasya.pupkin@gmail.com')); // true
-console.log(validator.checkIsDomain('google.com')); // true
-console.log(validator.checkIsDate('30.11.2019')); // true
-console.log(validator.checkIsPhone('+38 (066) 937-99-92'));
+// console.log(validator.checkIsEmail('vasya.pupkin@gmail.com')); // true
+// console.log(validator.checkIsDomain('google.com')); // true
+// console.log(validator.checkIsDate('30.11.2019')); // true
+// console.log(validator.checkIsPhone('+38 (066) 937-99-92'));
