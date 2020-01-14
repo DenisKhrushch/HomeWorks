@@ -121,8 +121,8 @@ for (let i = 0; i < result.length; i++)
 //______________________________________________________________________4, 5
 
 class Intern extends Student {
-    constructor({id, name, surname, ratingPoint, schoolPoint, budget}, companyName) {
-        super({id, name, surname, ratingPoint, schoolPoint, budget});
+    constructor(result, companyName) {
+        super(result);
         this.companyName = companyName;
     }
 
