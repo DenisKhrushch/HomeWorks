@@ -116,19 +116,19 @@ const room = new Room(newKidsArray, 101);
 //_______________________________________________________4
 
 let timerFunc = () => {
-    let time = new Date().getTime();
+    let time;
     return () => {
-        if (time === new Date().getTime()) {
+        if (!time) {
+            time = new Date().getTime();
             return 'Enabled';
         } else {
-            //??????????????????????????????
+            let olderTime = time;
             let temp = new Date().getTime();
-            return temp - time;
+            time = temp;
+            return temp - olderTime;
         }
     }
 };
 
 let getTime = timerFunc();
-// console.log(getTime());
-// console.log(getTime());
-// console.log(getTime());
+console.log(getTime());
