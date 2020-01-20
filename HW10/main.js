@@ -3,7 +3,7 @@ let candidateArray = require('./candidates.js');
 class Candidate {
     constructor(obj) {
         Object.assign(this, obj);
-        this.registered = new Date(obj.registered.split(' ')[0]).toUTCString();
+        this.registered = new Date(obj.registered.split(' ')[0]);
     }
 
     get state() {
@@ -12,7 +12,7 @@ class Candidate {
 }
 
 let candidate = new Candidate(candidateArray[0]);
-
+// console.log(candidate.registered);
 let getCompanyNames = () => {
   let companySet = new Set();
   for (let  i = 0; i < candidateArray.length; i++)
@@ -23,12 +23,12 @@ let getCompanyNames = () => {
 
 let getUsersByYear = year => {
     for (let i = 0; i < candidateArray.length; i++) {
-        let date = Date(candidateArray[i].registered.split(' ')[0]);
-        console.log(date);
+        // if (candidateArray[i].registered.getFullYear() === year)
+        console.log(candidateArray[i].registered.split(' ')[0]);
   }
 };
 
-getUsersByYear(2017);
+getUsersByYear('2017');
 
 let getCondidatesByUnreadMessages = messages => candidateArray
     .filter(item => +item.greeting
