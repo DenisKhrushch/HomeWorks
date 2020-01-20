@@ -12,7 +12,6 @@ class Candidate {
 }
 
 let candidate = new Candidate(candidateArray[0]);
-// console.log(candidate.registered);
 let getCompanyNames = () => {
   let companySet = new Set();
   for (let  i = 0; i < candidateArray.length; i++)
@@ -22,13 +21,14 @@ let getCompanyNames = () => {
 // console.log(getCompanyNames());
 
 let getUsersByYear = year => {
-    for (let i = 0; i < candidateArray.length; i++) {
-        // if (candidateArray[i].registered.getFullYear() === year)
-        console.log(candidateArray[i].registered.split(' ')[0]);
-  }
+    let result = [];
+    candidateArray.map(item => {
+        if (Number(item.registered.split('-')[0]) === year)
+             result.push(item._id);
+    });
+    return result;
 };
-
-getUsersByYear('2017');
+// console.log(getUsersByYear(2020));
 
 let getCondidatesByUnreadMessages = messages => candidateArray
     .filter(item => +item.greeting
@@ -53,5 +53,3 @@ Array.prototype.myReduce = function (callback, total = 0) {
     return total;
 };
 // console.log([1, 2, 3, 4, 5].myReduce((a, b) => a + b, 5));
-
-
