@@ -3,7 +3,7 @@ let candidateArray = require('./candidates.js');
 class Candidate {
     constructor(obj) {
         Object.assign(this, obj);
-        this.registered = new Date(obj.registered.split(' ')[0]).toUTCString();
+        this.registered = Date(obj.registered.split(' ')[0]);
     }
 
     get state() {
@@ -26,7 +26,6 @@ class Candidate {
         }
     }
 }
-
 let candidate = new Candidate(candidateArray[0]);
 let getAllKeys = obj => Object.keys(obj);
 let getAllValues = obj => Object.values(obj);
