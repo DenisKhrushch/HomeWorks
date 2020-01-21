@@ -20,15 +20,11 @@ let getCompanyNames = () => {
 };
 // console.log(getCompanyNames());
 
-let getUsersByYear = year => {
-    let result = [];
-    candidateArray.map(item => {
+let getUsersByYear = year => candidateArray.map(item => {
         if (Number(item.registered.split('-')[0]) === year)
-             result.push(item._id);
-    });
-    return result;
-};
-// console.log(getUsersByYear(2020));
+            return item._id;
+    }).filter(item => item);
+console.log(getUsersByYear(2020));
 
 let getCondidatesByUnreadMessages = messages => candidateArray
     .filter(item => +item.greeting
