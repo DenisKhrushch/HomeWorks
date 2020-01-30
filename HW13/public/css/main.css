@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+header {
+  background-color: indigo;
+  margin-bottom: 2rem; }
+  header h1 {
+    color: #28a745;
+    font-weight: 900;
+    font-style: italic;
+    margin-left: 4rem; }
+
+.logo-nav-holder {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: .8rem 0; }
+
+.search-holder {
+  display: inline-block; }
+
+.pizza-filter {
+  background-color: #f8f9fa;
+  color: indigo;
+  padding: .2rem;
+  border: 2px solid #343a40;
+  border-radius: .5rem; }
+  .pizza-filter::placeholder {
+    color: indigo; }
+
+.card {
+  position: relative;
+  min-height: 34.375rem;
+  margin-bottom: 1.5rem; }
+  .card span {
+    position: absolute;
+    display: inline-block;
+    top: .8rem;
+    right: .8rem; }
+
+.card-body p {
+  min-height: 9.375rem; }
+
+.button-price-holder {
+  display: flex;
+  justify-content: space-between; }
+
+.menu {
+  margin-bottom: 2rem; }
+
+.search-filter-holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.filters {
+  display: flex;
+  justify-content: space-around; }
