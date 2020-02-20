@@ -1,14 +1,14 @@
 import React from 'react';
-import Header from './components/Header/header';
-import Main from './components/Main/main';
-import Footer from './components/Footer/footer';
-// import Modal from './components/Modal';
+import Header from './modules/shared/header/header';
+import Main from './modules/main/main';
+import Footer from './modules/shared/footer/footer';
+
 const App = () => {
     return (
         <>
-            {Header()}
-            {Main()}
-            {Footer()}
+            <Header />
+            <Main />
+            <Footer />
         </>
   );
 };

@@ -168,16 +168,3 @@ export const pizzaList = [
         price: 145,
     },
 ];
-
-function CreatePizza({img, name, composition, caloricity, price}) {
-    this.id = CreatePizza._id++;
-    this.img = img;
-    this.name = name;
-    this.composition = composition;
-    this.caloricity = caloricity;
-    this.price = price;
-    this.isFavourite = false;
-}
-CreatePizza._id = 1;
-
-export const createPiazzaArrayByClass = pizzaList => [...pizzaList].map(item => new CreatePizza(item));

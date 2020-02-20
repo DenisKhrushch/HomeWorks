@@ -1,0 +1,42 @@
+header {
+  margin-bottom: 2rem;
+  h1 {
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+    margin-left: .5rem;
+    margin-bottom: 0;
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+    }
+  }
+  img {
+    width: 4rem;
+    @media screen and (max-width: 576px) {
+      display: none;
+    }
+  }
+  .navbar {
+    background-color: #6e1b22 !important;
+  }
+}
+
+.logo-nav-holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .8rem 0;
+}
+
+.nav-link {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #28a745 !important;
+  transition: .1s;
+  &:hover {
+    color: #38ea60 !important;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 1.2rem;
+  }
+}
