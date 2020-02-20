@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, Modal, ModalBody, ModalFooter, ModalHeader} from 'reactstrap';
 
-export const PizzaModal = ({pizza, modal, openModal}) => {
+export const PizzaModal = ({pizza, modal, openModal, buy}) => {
     const closeBtn = <button className="close" onClick={openModal}>&times;</button>;
 
     return(
@@ -12,7 +12,7 @@ export const PizzaModal = ({pizza, modal, openModal}) => {
                     <h5>Ингридиенты: </h5> {pizza.composition.join(', ')}
                 </ModalBody>
                 <ModalFooter>
-                    <Button color="primary">Купить</Button>{' '}
+                    <Button color="primary" onClick={buy}>Купить</Button>{' '}
                     <Button color="secondary" onClick={openModal}>Отмена</Button>
                 </ModalFooter>
             </Modal>
